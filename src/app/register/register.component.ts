@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {RegisterInterface} from '../Interfaces/registerInterface';
-import {AuthService} from '../services/auth.service';
-import {API_Response} from '../Interfaces/API_Response';
+
+import {RegisterInterface, ApiResponse} from '../Interfaces';
+import {AuthService} from '../services';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
   registerUser(registerForm: RegisterInterface) {
     console.log(registerForm);
-    this.authService.registerUser(registerForm).subscribe((data: API_Response) => {
+    this.authService.registerUser(registerForm).subscribe((data: ApiResponse) => {
       console.log(data.msg);
     });
   }

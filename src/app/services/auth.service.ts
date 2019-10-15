@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+
 import {Hosts} from '../enums/hosts';
 
 @Injectable({
@@ -16,6 +17,6 @@ export class AuthService {
 
 
   registerUser(user) {
-    return this.http.post(`${Hosts.API_HOST}/user`, {email: user.email, password: user.password});
+    return this.http.post(`${Hosts.API_HOST}/user`, user);
   }
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginInterface} from '../Interfaces/loginInterface';
-import {AuthService} from '../services/auth.service';
-import {API_Response} from '../Interfaces/API_Response';
+
+import {LoginInterface, ApiResponse} from '../Interfaces';
+import {AuthService} from '../services';
 
 @Component({
   selector: 'app-login',
@@ -19,12 +19,11 @@ export class LoginComponent implements OnInit {
 
   loginUser(loginForm: LoginInterface) {
     console.log(loginForm);
-    this.authService.loginUser(loginForm).subscribe((data: API_Response) => {
+    this.authService.loginUser(loginForm).subscribe((data: ApiResponse) => {
       console.log(data.msg);
       if (data.success) {
         localStorage.setItem('token', data.msg);
       }
     });
   }
-
 }
